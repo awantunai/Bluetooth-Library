@@ -144,6 +144,15 @@ public class Bluetooth {
     }
 
     /**
+     * expose outputStream for AwanPay to use
+     * @return OutputStream
+     */
+    public OutputStream getOutputStream() {
+        return receiveThread.out;
+    }
+
+
+    /**
      * Get BluetoothManager.
      * @return BluetoothManager.
      */
@@ -553,7 +562,7 @@ public class Bluetooth {
         public void run(){
             byte[] msg;
             try {
-                while((msg = reader.read()) != null) {
+                while(reader != null && (msg = reader.read()) != null) {
                     if(deviceCallback != null){
                         final byte[] msgCopy = msg;
                         ThreadHelper.run(runOnUi, activity, new Runnable() {
