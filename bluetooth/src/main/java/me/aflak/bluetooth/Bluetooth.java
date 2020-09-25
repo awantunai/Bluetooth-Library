@@ -144,6 +144,14 @@ public class Bluetooth {
     }
 
     /**
+     * Expose receiver thread
+     * @return ReceiveThread
+     */
+    public ReceiveThread getReceiveThread() {
+        return receiveThread;
+    }
+
+    /**
      * expose outputStream for AwanPay to use
      * @return OutputStream
      */
