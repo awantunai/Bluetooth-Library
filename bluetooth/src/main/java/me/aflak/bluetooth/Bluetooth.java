@@ -549,7 +549,7 @@ public class Bluetooth {
         }).start();
     }
 
-    private class ReceiveThread extends Thread implements Runnable{
+    public class ReceiveThread extends Thread implements Runnable{
         private SocketReader reader;
         private BluetoothSocket socket;
         private BluetoothDevice device;
